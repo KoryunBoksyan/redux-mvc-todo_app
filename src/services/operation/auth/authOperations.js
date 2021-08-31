@@ -8,8 +8,9 @@ class AuthOperation {
         return response;
     }
 
-    registaration = async () => {
-        const response = await this.authApi.registaration()
+    async registaration(data) {
+        const response = await this.authApi.registaration(data);
+        return response;
     }
 }
 

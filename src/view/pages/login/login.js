@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -39,16 +39,26 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-
 const SignIn = ({ login }) => {
   const classes = useStyles();
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  })
+
   const handleLogin = (e) => {
     e.preventDefault();
-    login({
-      email: 'sargsyand89@gmail.com',
-      password: '200162662767448j'
-    })
+    login(values);
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setValues(prev => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+  
 
   return (
     <Container component="main" maxWidth="xs">
@@ -67,6 +77,7 @@ const SignIn = ({ login }) => {
             required
             fullWidth
             id="email"
+            onChange = {handleInputChange}
             label="Email Address"
             name="email"
             autoComplete="email"
@@ -78,6 +89,7 @@ const SignIn = ({ login }) => {
             required
             fullWidth
             name="password"
+            onChange = {handleInputChange}
             label="Password"
             type="password"
             id="password"

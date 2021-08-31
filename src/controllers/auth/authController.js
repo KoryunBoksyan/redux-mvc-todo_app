@@ -9,7 +9,7 @@ class AuthController {
     }
 
     registaration = async (state, action) => {
-        const response = await this.authOperation.registaration();
+        const response = await this.authOperation.registaration(action.payload);
         return response;
     }
 }
