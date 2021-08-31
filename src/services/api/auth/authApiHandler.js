@@ -1,16 +1,20 @@
-import HttpClients from "../../httpClients";
+import httpClients from "../../httpClients";
 
 const END_POINT = {
   prefix: 'user',
-  login: 'login'
+  login: 'login',
+  register: "register"
 }
+
+const postLoginUrl = () => `${END_POINT.prefix}/${END_POINT.login}`;
+const postRegisterUrl = () => `${END_POINT.prefix}/${END_POINT.register}`;
 
 class AuthApiHandler {
   constructor(props) {
 
   }
     async login(data){
-        HttpClients.post('user/login', data)
+      httpClients.post(postLoginUrl(), data);
         // const myHeaders = new Headers();
         // myHeaders.append("Content-Type", "application/json");
         
@@ -33,22 +37,23 @@ class AuthApiHandler {
     }
 
     async registaration(data) {
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+        // const myHeaders = new Headers();
+        // myHeaders.append("Content-Type", "application/json");
         
-        const raw = JSON.stringify(data);
+        // const raw = JSON.stringify(data);
         
-        const requestOptions = {
-          method: 'POST',
-          headers: myHeaders,
-          body: raw,
-          redirect: 'follow'
-        };
+        // const requestOptions = {
+        //   method: 'POST',
+        //   headers: myHeaders,
+        //   body: raw,
+        //   redirect: 'follow'
+        // };
         
-        fetch("https://api-nodejs-todolist.herokuapp.com/user/register", requestOptions)
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.log('error', error));
+        // fetch("https://api-nodejs-todolist.herokuapp.com/user/register", requestOptions)
+        //   .then(response => response.text())
+        //   .then(result => console.log(result))
+        //   .catch(error => console.log('error', error));
+        httpClients.post(postRegisterUrl(), data)
     }
 }
 

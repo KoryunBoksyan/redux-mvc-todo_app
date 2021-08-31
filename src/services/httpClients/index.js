@@ -1,35 +1,51 @@
 import { API_URL } from "../../core/constants/urls";
 
 class HttpClients {
-    static get() {
-
+    constructor({ api, deafultHeaders }) {
+        this.api = api;
+        this.deafultHeaders = deafultHeaders;
     }
 
-    static post(url, data) {
-       return HttpClients.unRequest(url, 'POST', data)
+    get(url) {
+        return this.unRequest(url, { method: 'GET' });
     }
 
-    static put() {
-
+    post(url, body) {
+       return this.unRequest(url, { method: 'POST', body });
     }
 
-    static delete() {
-
+    put(url, body) {
+        return this.unRequest(url, { method: 'PUT', body });
     }
 
-    static async unRequest(url, method, data) {
-        console.log(url, method, data)
-        const response = await fetch(`${API_URL}/${url}`, {
-            method,
-            headers: {
-                "Content-Type": "application/json" 
-            },
-            body: JSON.stringify(data)
-        });
+    delete(url) {
+        return this.unRequest(url, { method: 'DELETE' });
+    }
+
+    async unRequest(url, options) {
+        const { body, restOptions } = options;
+        const options = {
+            headers: this.deafultHeaders,
+            ...restOptions,
+        }
+
+        if(body !== undefined) {
+            options.body = JSON.stringify(body)
+        }
+
+        const response = await fetch(`${this.api}/${url}`, options)
+        .then(res => res.json());
 
         return response;
     }
 }
 
-export default HttpClients;
-// HttpClients.post('users', {email: 'sargsyand888@gmail.com', password: 4545454}) //
+const httpClients = new HttpClients({ 
+    api: API_URL,
+    deafultHeaders: new Headers({
+        "Content-Type": "application/json" ,
+        'Accept': 'application/json'
+    }),
+ });
+
+export default httpClients;

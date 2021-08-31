@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
-import HeaderBar from "../components/header_bar/header";
+import HeaderBar from "../components/headerBar/header";
 import SignIn from "../pages/login/login";
 import Register from "../pages/registration/registration";
 import { Provider } from 'react-redux';
