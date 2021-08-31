@@ -7,7 +7,7 @@ export const controllerMiddleware = configs => state => next => action => {
           return err;
       }
     } else {
-      return next(action)
+      return next ( action )
     }
  };
   

@@ -10,11 +10,11 @@ const postLoginUrl = () => `${END_POINT.prefix}/${END_POINT.login}`;
 const postRegisterUrl = () => `${END_POINT.prefix}/${END_POINT.register}`;
 
 class AuthApiHandler {
-  constructor(props) {
+  constructor ( props ) {
 
   }
-    async login(data){
-      httpClients.post(postLoginUrl(), data);
+    async login ( data ){
+      httpClients.post (postLoginUrl(), data);
         // const myHeaders = new Headers();
         // myHeaders.append("Content-Type", "application/json");
         
@@ -36,7 +36,7 @@ class AuthApiHandler {
         //   .catch(error => console.log('error', error));
     }
 
-    async registaration(data) {
+    async registaration ( data ) {
         // const myHeaders = new Headers();
         // myHeaders.append("Content-Type", "application/json");
         
@@ -53,9 +53,9 @@ class AuthApiHandler {
         //   .then(response => response.text())
         //   .then(result => console.log(result))
         //   .catch(error => console.log('error', error));
-        httpClients.post(postRegisterUrl(), data)
+        httpClients.post ( postRegisterUrl(), data )
     }
 }
 
-const authApiHendler = new AuthApiHandler();
+const authApiHendler = new AuthApiHandler ();
 export default authApiHendler;

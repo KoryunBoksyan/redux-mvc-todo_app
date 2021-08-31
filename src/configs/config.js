@@ -4,6 +4,6 @@ import * as controllers from './controllerFactory';
 
 export const configs = {
     [ACTION_TYPES.CNTRL_LOGIN]: controllers.authControllers.login,
-    [ACTION_TYPES.CNTRL_REGISTRATION]: controllers.authControllers.registaration
+    [ACTION_TYPES.CNTRL_REGISTRATION]: controllers.authControllers.registaration,
 
 }

@@ -9,13 +9,13 @@ const composeEnhancers =
       // Specify extension's options like name, actionsBlacklist, actionsCreators, serialize...
     }) : compose;
 
-    const enhancer = composeEnhancers(
-    applyMiddleware(controllerMiddleware(configs))
+    const enhancer = composeEnhancers (
+    applyMiddleware ( controllerMiddleware ( configs ) )
     // other store enhancers if any
     );
 
-    const rootReducers = combineReducers({
+    const rootReducers = combineReducers ({
       
     })
 
-export const store = createStore(rootReducers, enhancer)
+export const store = createStore ( rootReducers, enhancer )

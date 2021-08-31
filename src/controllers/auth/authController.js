@@ -1,6 +1,6 @@
 
 class AuthController {
-    constructor(authOperation) {
+    constructor ( authOperation ) {
         this.authOperation = authOperation
     }
     login = async (state, action) => {
@@ -9,7 +9,7 @@ class AuthController {
     }
 
     registaration = async (state, action) => {
-        const response = await this.authOperation.registaration(action.payload);
+        const response = await this.authOperation.registaration ( action.payload );
         return response;
     }
 }
