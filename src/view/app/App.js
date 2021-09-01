@@ -5,6 +5,7 @@ import SignIn from "../pages/login/login";
 import Register from "../pages/registration/registration";
 import { Provider } from 'react-redux';
 import { store } from '../../stateManagment/store';
+import DataTable from "../pages/home/home"
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <BrowserRouter>
         <div>
             <HeaderBar/>
+            <DataTable />
             <Switch>
               <Route exact path="/login" component={SignIn} />
               <Route exact path="/register" component={Register} />

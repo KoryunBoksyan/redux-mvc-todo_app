@@ -13,8 +13,8 @@ class AuthApiHandler {
   constructor ( props ) {
 
   }
-    async login ( data ){
-      httpClients.post (postLoginUrl(), data);
+    login ( data ){
+      return httpClients.post (postLoginUrl(), data);
         // const myHeaders = new Headers();
         // myHeaders.append("Content-Type", "application/json");
         

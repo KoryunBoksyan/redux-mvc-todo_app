@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { controllerMiddleware } from '../middleware/controllerMiddleware';
 import { configs } from '../../configs/config';
+import { authReducer } from '../reducers/auth';
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -15,7 +16,7 @@ const composeEnhancers =
     );
 
     const rootReducers = combineReducers ({
-      
+      auth: authReducer,
     })
 
 export const store = createStore ( rootReducers, enhancer )
