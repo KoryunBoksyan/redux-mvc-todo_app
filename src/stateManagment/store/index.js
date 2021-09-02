@@ -11,12 +11,12 @@ const composeEnhancers =
     }) : compose;
 
     const enhancer = composeEnhancers (
-    applyMiddleware ( controllerMiddleware ( configs ) )
+    applyMiddleware(controllerMiddleware(configs))
     // other store enhancers if any
     );
 
-    const rootReducers = combineReducers ({
+    const rootReducers = combineReducers({
       auth: authReducer,
     })
 
-export const store = createStore ( rootReducers, enhancer )
+export const store = createStore(rootReducers, enhancer)

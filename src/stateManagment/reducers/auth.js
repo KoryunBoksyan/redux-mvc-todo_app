@@ -1,4 +1,3 @@
-import createAsyncReducer from "../../helpers/createreducers";
 import { ACTION_TYPES } from "../../core/actionTypes";
 import createReducer from "../../helpers/createReducer";
 

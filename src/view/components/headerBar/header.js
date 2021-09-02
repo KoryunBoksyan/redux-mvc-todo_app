@@ -20,19 +20,19 @@ const useStyles = makeStyles ( ( theme ) => ({
   },
 }));
 
-export default function HeaderBar () {
-  const classes = useStyles ();
-  const history = useHistory ();
+export default function HeaderBar() {
+  const classes = useStyles();
+  const history = useHistory();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title} onClick={ () => { history.push("/") } }>
+          <Typography variant="h6" className={classes.title} onClick={() => {history.push("/")}}>
             ToDo App
           </Typography>
-          <Button color="inherit" onClick={ () => { history.push('/login') } }>Login</Button>
-          <Button color="inherit" onClick={ () => { history.push('/register') } }>Register</Button>
+          <Button color="inherit" onClick={() => {history.push('/login')}}>Login</Button>
+          <Button color="inherit" onClick={() => {history.push('/register')}}>Register</Button>
         </Toolbar>
       </AppBar>
     </div>

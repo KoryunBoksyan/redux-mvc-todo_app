@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
 import {cntrlRegistration} from "../../../stateManagment/actions/registrationAction"
+import { useHistory } from 'react-router';
 
 function Copyright() {
   return (
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
  const Register = ({registration}) => {
+  const history = useHistory();
   const classes = useStyles();
   const [values, setValues] = useState({
     name: '',
@@ -49,6 +51,11 @@ const useStyles = makeStyles((theme) => ({
   const handleRegistration = (e) => {
     e.preventDefault();
     registration(values)
+    .then(resp => {
+      if (resp.token) {
+          history.push('/login');
+      }
+    })
   }
 
   const handleInputChange = (e) => {
