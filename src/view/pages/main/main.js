@@ -1,9 +1,9 @@
-import DataTable from "./table/table";
+import ToDo from "../todoMain/todoMain";
 
 export default function Main () {
     return (
         <div>
-            <DataTable />
+            <ToDo />
         </div>
     )
 }
