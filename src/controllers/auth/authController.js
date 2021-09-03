@@ -6,7 +6,8 @@ class AuthController {
     login = async(state, action) => {
         const response = await this.authOperation.login(action.payload);
         if(response.token) {
-            state.dispatch(rxSetAuth(true))
+            state.dispatch(rxSetAuth(true));
+            localStorage.setItem("token", response.token)
         }
         console.log(response);
         return response;

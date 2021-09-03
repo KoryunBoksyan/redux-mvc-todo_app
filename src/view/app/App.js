@@ -9,7 +9,6 @@ import UnAuthGuard from '../guards/unAuthGuard/unAuthGuard';
 import AuthGuard from '../guards/authGuard/authGuard';
 import { store } from '../../stateManagment/store';
 import Todos from '../pages/todos/todos';
-import ToDo from "../pages/todoMain/todoMain"
 
 function App() {
   return (
