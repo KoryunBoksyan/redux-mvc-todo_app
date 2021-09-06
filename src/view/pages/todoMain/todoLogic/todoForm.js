@@ -7,18 +7,20 @@ function TodoForm ({onAdd}){
         localStorage.setItem("text", text)
     }
 
+    const handeleInputValue = (e) => {
+        e.preventDefault();
+        onAdd(text);
+        setText("");
+    }
+
 
     return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            onAdd(text);
-            setText("");
-        }}>
+        <form onSubmit={handeleInputValue}>
             <input 
                 type="text" 
                 value={text} 
                 onChange={(e)=> addTodo(e)}
-                ></input>
+                />
             <button>Add</button>
             {/* {console.log(localStorage.getItem("text", text))} */}
         </form>

@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { controllerMiddleware } from '../middleware/controllerMiddleware';
 import { configs } from '../../configs/config';
 import { authReducer } from '../reducers/auth';
+import { tasksReducer } from '../reducers/tasksReducer';
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -17,6 +18,7 @@ const composeEnhancers =
 
     const rootReducers = combineReducers({
       auth: authReducer,
+      tasks: tasksReducer
     })
 
 export const store = createStore(rootReducers, enhancer)

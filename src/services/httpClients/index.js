@@ -1,4 +1,3 @@
-import { logDOM } from "@testing-library/react";
 import { API_URL } from "../../core/constants/urls";
 
 class HttpClients {
