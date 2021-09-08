@@ -10,10 +10,11 @@ const createAsyncReducer = (prefix, initialState) => {
         return {
           ...state,
           data: state.data,
-          isLoading: false,
+          isLoading: true,
           error: null
         };
-      case `${prefix}_${DONE}`: return  {
+      case `${prefix}_${DONE}`: 
+      return  {
         ...state,
         data: action.payload,
         isLoading: false,

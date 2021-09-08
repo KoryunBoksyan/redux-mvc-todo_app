@@ -1,3 +1,4 @@
+import httpClients from '../../services/httpClients';
 import { rxSetAuth } from '../../stateManagment/actions/loginAction'
 class AuthController {
     constructor(authOperation) {
@@ -6,10 +7,10 @@ class AuthController {
     login = async(state, action) => {
         const response = await this.authOperation.login(action.payload);
         if(response.token) {
+            httpClients.addAuthorization(response.token);
             state.dispatch(rxSetAuth(true));
             localStorage.setItem("token", response.token)
         }
-        console.log(response);
         return response;
     }
 

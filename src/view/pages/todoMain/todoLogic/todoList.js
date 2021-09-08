@@ -7,11 +7,11 @@ function TodoList({ todos, onChange, onDelate }) {
                 todos.map((todo) => {
                     return (
                         <TodoItem 
-                        key={todo.id} 
+                        key={todo._id} 
                         todo={todo}
                         onChange={onChange}
                         onDelete={onDelate}
-                        />
+                    />
                     )
                 })
             }

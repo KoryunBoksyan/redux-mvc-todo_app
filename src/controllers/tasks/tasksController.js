@@ -1,3 +1,5 @@
+import {rxlGetAllTaskDone, rxGetAllTaskPanding} from "../../stateManagment/actions/tasksActions";
+
 class TasksController {
     constructor (taskOperations) {
         this.taskOperations = taskOperations;
@@ -8,8 +10,9 @@ class TasksController {
     }
 
     getAllTasks = async (state, action) => {
-        const response = this.taskOperations.getAllTasks(action.payload);
-        return response;
+        state.dispatch(rxGetAllTaskPanding())
+        const response = await this.taskOperations.getAllTasks(action.payload);
+        state.dispatch(rxlGetAllTaskDone(response));
     }
 
     getTaskId = async (state, action) => {

@@ -12,7 +12,7 @@ const composeEnhancers =
     }) : compose;
 
     const enhancer = composeEnhancers (
-    applyMiddleware(controllerMiddleware(configs))
+    applyMiddleware(controllerMiddleware(configs)) //{}
     // other store enhancers if any
     );
 

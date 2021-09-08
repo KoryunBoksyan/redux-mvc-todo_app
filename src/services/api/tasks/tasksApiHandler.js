@@ -13,6 +13,7 @@ class TaskApiHandler {
     }
 
     getAllTasks() {
+        // return [{name: 'Task1'}, {name: 'Task2'}, {name: 'Task3'}]
         return httpClients.get(taskUrl());
     }
 }

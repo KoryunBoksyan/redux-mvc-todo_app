@@ -7,7 +7,7 @@ import * as Operations from "../services/operation";
 const authOperations = new Operations.AuthOperation ( ApiHandlers.authApiHendler )
 const authControllers = new Controllers.AuthController ( authOperations );
 
-const tasksOperations = new Operations.TasksOperations(ApiHandlers.authApiHendler);
+const tasksOperations = new Operations.TasksOperations(ApiHandlers.taskApiHendler);
 const tasksController = new Controllers.TasksController(tasksOperations);
 
 export {

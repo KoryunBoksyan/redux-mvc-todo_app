@@ -8,7 +8,10 @@ import HeaderBar from '../components/headerBar/header';
 import UnAuthGuard from '../guards/unAuthGuard/unAuthGuard';
 import AuthGuard from '../guards/authGuard/authGuard';
 import { store } from '../../stateManagment/store';
-import Todos from '../pages/todos/todos';
+import Task from '../pages/task';
+
+import Todos from '../pages/todosCover/todos';
+import Main from '../pages/main/main';
 
 function App() {
   return (
@@ -34,7 +37,7 @@ function App() {
             </Route>
             <Route path="/home">
               <AuthGuard>
-                <Home/>
+                <Main/>
               </AuthGuard>
             </Route>
             <Redirect to="/"/>

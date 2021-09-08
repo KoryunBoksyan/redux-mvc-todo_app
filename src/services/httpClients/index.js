@@ -2,12 +2,21 @@ import { API_URL } from "../../core/constants/urls";
 
 class HttpClients {
     constructor ( { api, deafultHeaders } ) {
+        console.log(deafultHeaders);
         this.api = api;
         this.deafultHeaders = deafultHeaders;
         this.options = {};
     }
 
-    get(url) {
+    addHeaders(name, value) {
+        this.deafultHeaders.append(name, value)
+    }
+
+    addAuthorization(token) {
+        this.addHeaders('Authorization', `Bearer ${token}`);
+    }
+
+    get(url, ) {
         return this.unRequest ( url, { method: 'GET' } );
     }
 
@@ -24,6 +33,7 @@ class HttpClients {
     }
 
     async unRequest(url, options) {
+        // if(token)
         const { body, ...restOptions } = options;
         const requestOptions = {
             ...this.options,
