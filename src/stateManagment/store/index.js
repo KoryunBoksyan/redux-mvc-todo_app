@@ -18,7 +18,7 @@ const composeEnhancers =
 
     const rootReducers = combineReducers({
       auth: authReducer,
-      tasks: tasksReducer
+      tasks: tasksReducer,
     })
 
 export const store = createStore(rootReducers, enhancer)

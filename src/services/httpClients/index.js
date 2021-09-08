@@ -33,7 +33,6 @@ class HttpClients {
     }
 
     async unRequest(url, options) {
-        // if(token)
         const { body, ...restOptions } = options;
         const requestOptions = {
             ...this.options,

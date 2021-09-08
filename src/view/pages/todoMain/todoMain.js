@@ -8,7 +8,7 @@ import Todolist from './todoLogic/todoList';
 function ToDo() {
   const dispatch = useDispatch()
   const {isLoading, data: {data: todos}} = useSelector(state => state.tasks.tasks);
-  console.log(isLoading)
+  console.log(isLoading);
 
 useEffect(() => {
   dispatch(cntrlGetAllTask())

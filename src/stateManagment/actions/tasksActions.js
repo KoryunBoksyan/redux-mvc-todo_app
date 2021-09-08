@@ -6,7 +6,7 @@ export const cntrlAddTask = payload => ({
     payload,
 });
 
-// All Tasks
+// All Tasks GET
 export const cntrlGetAllTask = payload => ({
     type: ACTION_TYPES.CNTRL_GET_ALL_TASK,
     payload,
@@ -19,6 +19,22 @@ export const rxGetAllTaskPanding = payload => ({
 
 export const rxlGetAllTaskDone = payload => ({
     type: ACTION_TYPES.RX_GET_ALL_TASK_DONE,
+    payload,
+});
+
+// All Tasks PUT
+export const cntrlPutAllTask = payload => ({
+    type: ACTION_TYPES.CNTRL_PUT_ALL_TASK,
+    payload,
+});
+
+export const rxPutAllTaskPanding = payload => ({
+    type: ACTION_TYPES.RX_PUT_ALL_TASK_PENDING,
+    payload,
+});
+
+export const rxlPutAllTaskDone = payload => ({
+    type: ACTION_TYPES.RX_PUT_ALL_TASK_DONE,
     payload,
 });
 

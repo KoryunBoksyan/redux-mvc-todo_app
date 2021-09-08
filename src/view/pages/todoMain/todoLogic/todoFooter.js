@@ -1,4 +1,5 @@
 function TodoFooter ({ todos, onClearCompleted }) {
+    console.log({todos});
 
     const completedSize = todos.filter((todo) => todo.isCompleted).length;
 

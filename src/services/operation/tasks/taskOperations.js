@@ -12,6 +12,11 @@ class TasksOperations {
         return response;
     }
 
+    putAllTask = async (data) => {
+        const response = this.taskApi.putAllTask(data);
+        return response;
+    }
+
     getTaskId = async (data) => {
         const response = this.taskApi.getTaskId(data);
         return response;

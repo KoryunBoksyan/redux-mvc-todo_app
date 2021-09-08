@@ -1,4 +1,4 @@
-import {rxlGetAllTaskDone, rxGetAllTaskPanding} from "../../stateManagment/actions/tasksActions";
+import { rxlGetAllTaskDone, rxGetAllTaskPanding, rxPutAllTaskPanding, rxlPutAllTaskDone } from "../../stateManagment/actions/tasksActions";
 
 class TasksController {
     constructor (taskOperations) {
@@ -13,6 +13,12 @@ class TasksController {
         state.dispatch(rxGetAllTaskPanding())
         const response = await this.taskOperations.getAllTasks(action.payload);
         state.dispatch(rxlGetAllTaskDone(response));
+    }
+
+    putAllTask =  async (state, action) => {
+        state.dispatch(rxPutAllTaskPanding());
+        const response = await this.taskOperations.putAllTask(action.payload);
+        state.dispatch(rxlPutAllTaskDone(response));
     }
 
     getTaskId = async (state, action) => {
