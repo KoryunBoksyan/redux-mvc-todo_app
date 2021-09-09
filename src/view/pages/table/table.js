@@ -2,9 +2,11 @@ import {React,useEffect} from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { useDispatch, useSelector } from 'react-redux';
 import { cntrlGetAllTask, cntrlPutAllTask } from '../../../stateManagment/actions/tasksActions';
-import Loading from "../loading/loading";
 import { Checkbox } from '@material-ui/core';
-import httpClients from '../../../services/httpClients';
+import Loading from "../loading/loading";
+import DeleteButton from './buttons/deleteButtons';
+import EditButton from './buttons/editButton';
+import AddButton from './buttons/addButtons';
 
 
 export default function DataTable() {
@@ -23,7 +25,7 @@ export default function DataTable() {
             headerName: 'Completed',
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
-            width: 160,
+            width: 130,
             renderCell: ({row: {_id, completed}}) => (
                 <Checkbox
                     checked={completed}
@@ -35,7 +37,23 @@ export default function DataTable() {
         {
             field: 'description',
             headerName: 'Description',
-            width: 150,
+            width: 350,
+            editable: true,
+        },
+        {
+            field: 'edit / delete',
+            headerName: 'Edit / Delete',
+            width: 270,
+            editable: true,
+            renderCell: () => <div style={{display: 'flex'}}>
+                <EditButton />
+                <DeleteButton />
+            </div>  
+        },
+        {
+            field: 'more information',
+            headerName: 'More Information',
+            width: 320,
             editable: true,
         },
     ];
@@ -49,11 +67,14 @@ export default function DataTable() {
     }, []);
 
   return isLoading ? <Loading /> : (
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid
-        rows={todos.map(todo => ({id: todo._id, ...todo}))}
-        columns={columns}
-      />
-    </div>
+    <div>
+        <AddButton />
+        <div style={{ height: 400, width: '100%' }}>
+            <DataGrid
+                rows={todos.map(todo => ({id: todo._id, ...todo}))}
+                columns={columns}
+        />
+        </div>
+    </div>   
   );
 }

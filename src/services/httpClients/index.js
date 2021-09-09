@@ -9,15 +9,16 @@ class HttpClients {
     }
 
     addHeaders(name, value) {
-        this.deafultHeaders.append(name, value)
+        this.deafultHeaders.append(name, value);
     }
 
     addAuthorization(token) {
+        this.deafultHeaders.delete('Authorization');
         this.addHeaders('Authorization', `Bearer ${token}`);
     }
 
-    get(url, ) {
-        return this.unRequest ( url, { method: 'GET' } );
+    get(url) {
+        return this.unRequest (url, { method: 'GET' });
     }
 
     post(url, body) {

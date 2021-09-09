@@ -8,6 +8,11 @@ class AuthOperation {
         return response;
     }
 
+    async logOut (data) {
+        const response = await this.authApi.logOut(data);
+        return response;
+    }
+
     async registaration(data) {
         const response = await this.authApi.registaration(data);
         return response;

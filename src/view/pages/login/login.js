@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
-import { cntrlLogin } from '../../../stateManagment/actions/loginAction';
+import { cntrlLogin, cntrlLogOut } from '../../../stateManagment/actions/loginAction';
 
 function Copyright() {
   return (
@@ -45,11 +45,12 @@ const SignIn = ({ login }) => {
     email: "",
     password: "",
   })
-
+  
   const handleLogin = (e) => {
     e.preventDefault();
     login(values);
   };
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -114,11 +115,12 @@ const SignIn = ({ login }) => {
 }
 
 const mapStateToProps = state => ({
-
+  state
 });
 
 const mapDispatchToProps = {
-  login: cntrlLogin
+  login: cntrlLogin,
+  logOut: cntrlLogOut,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

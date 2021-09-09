@@ -3,7 +3,6 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Register from '../pages/registration/registration';
 import SignIn from '../pages/login/login';
-import Home from '../pages/home/home';
 import HeaderBar from '../components/headerBar/header';
 import UnAuthGuard from '../guards/unAuthGuard/unAuthGuard';
 import AuthGuard from '../guards/authGuard/authGuard';

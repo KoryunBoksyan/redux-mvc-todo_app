@@ -1,5 +1,5 @@
 export const ACTION_TYPES = {
-    // Controller and Registration
+    // Controller login and Registration
     CNTRL_LOGIN: "CNTRL_LOGIN",
     CNTRL_REGISTRATION: "CNTRL_REGISTRATION",
 
@@ -15,6 +15,10 @@ export const ACTION_TYPES = {
     RX_GET_ALL_TASK: 'RX_GET_ALL_TASK',
     RX_GET_ALL_TASK_PENDING: 'RX_GET_ALL_TASK_PENDING', //
     RX_GET_ALL_TASK_DONE: 'RX_GET_ALL_TASK_DONE', //
+
+    // LogOut
+    CNTRL_LOGOUT: "CNTRL_LOGOUT",
+
 
     // PUT
     CNTRL_PUT_ALL_TASK: 'CNTRL_PUT_ALL_TASK',  //

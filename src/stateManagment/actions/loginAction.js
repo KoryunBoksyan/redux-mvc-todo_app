@@ -5,7 +5,12 @@ export const cntrlLogin = payload => ({
     payload,
 });
 
+export const cntrlLogOut = payload => ({
+    type: ACTION_TYPES.CNTRL_LOGOUT,
+    payload,
+});
+
 export const rxSetAuth = payload => ({
     type: ACTION_TYPES.RX_SET_AUTH_BOOL,
     payload
-})
+});
