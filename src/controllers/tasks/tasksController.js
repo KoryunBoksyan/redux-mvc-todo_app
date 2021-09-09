@@ -5,7 +5,7 @@ class TasksController {
         this.taskOperations = taskOperations;
     }
     addTask = async (state, action) => {
-        const response = this.taskOperations.addTask(action.payload);
+        const response = await this.taskOperations.addTask(action.payload);
         return response;
     }
 

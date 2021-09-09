@@ -27,6 +27,7 @@ export default function HeaderBar() {
   const history = useHistory();
   const isAuth = useSelector((store) => store.auth );
   const dispatch = useDispatch();
+  
   const handleLogout = () => {
     dispatch(cntrlLogOut())
   };
