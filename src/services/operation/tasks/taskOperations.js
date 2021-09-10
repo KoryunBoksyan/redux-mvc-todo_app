@@ -3,7 +3,7 @@ class TasksOperations {
         this.taskApi = taskApi;
     }
     addTask = async (data) => {
-        const response = this.taskApi.addTask(data);
+        const response = await this.taskApi.addTask(data);
         return response;
     }
 

@@ -8,8 +8,8 @@ const END_POINT = {
 const taskUrl = (id) => `${END_POINT.task}${id ? `/${id}` : ''}`;
 
 class TaskApiHandler {
-    addtask(data) {
-        return httpClients.post(taskUrl(), data);
+    addTask(description) {
+        return httpClients.post(taskUrl(), { description });
     }
 
     putAllTask(data) {
