@@ -3,6 +3,8 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import Modal from "./modal";
+import { useDispatch } from 'react-redux';
+import { cntrlAddTask } from '../../../../stateManagment/actions/tasksActions';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -14,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
 export default function AddButton() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleOk = (value) => {
+    dispatch(cntrlAddTask(value))
+  };
 
   return (
     <div>
@@ -26,7 +33,7 @@ export default function AddButton() {
       >
         ADD
       </Button>
-      <Modal open={open} onClose={() => setOpen(false)} />
+      <Modal open={open} onClose={() => setOpen(false)} onOk={handleOk} />
     </div>
   );
 }

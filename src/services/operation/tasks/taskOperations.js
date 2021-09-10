@@ -7,6 +7,16 @@ class TasksOperations {
         return response;
     }
 
+    editTask = async (data) => {
+        const response = await this.taskApi.addTask(data);
+        return response;
+    }
+
+    deleteTask = async (data) => {
+        const response = await this.taskApi.deleteTask(data);
+        return response;
+    }
+
     getAllTasks = async (data) => {
         const response = this.taskApi.getAllTasks(data);
         return response;
@@ -14,6 +24,11 @@ class TasksOperations {
 
     putAllTask = async (data) => {
         const response = this.taskApi.putAllTask(data);
+        return response;
+    }
+
+    editTask = async (data) => {
+        const response = await this.taskApi.editTask(data);
         return response;
     }
 

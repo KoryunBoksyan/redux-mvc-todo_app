@@ -17,6 +17,15 @@ class TaskApiHandler {
         return httpClients.put(taskUrl(id), payload);
     }
 
+    deleteTask(id) {
+        return httpClients.delete(taskUrl(id));
+    }
+
+    editTask(data) {
+        const { id, ...payload } = data;
+        return httpClients.put(taskUrl(id), payload);
+    }
+
     getAllTasks() {
         return httpClients.get(taskUrl());
     }

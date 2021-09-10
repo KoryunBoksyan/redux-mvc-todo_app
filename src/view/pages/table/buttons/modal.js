@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import { cntrlAddTask } from '../../../../stateManagment/actions/tasksActions';
-import { connect } from 'react-redux';
+
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SimpleModal({open, onClose, addTask }) {
+function SimpleModal({open, onClose, oktext = 'Save', onOk }) {
   const classes = useStyles();
   const [value, setValue] = useState("")
   // getModalStyle is not a pure function, we roll the style only on the first render
@@ -41,29 +40,17 @@ function SimpleModal({open, onClose, addTask }) {
     console.log(evt.target.value);
   };
 
-  const handleSave = (evt) => {
-    evt.preventDefault();
-    // const fetchContentModel = {
-    //   body: JSON.stringify(this.state),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
-    // const methodType = this.props.intern?.id ? "PUT" : "POST";
-    
-    addTask(value)
-  };
-
-
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Enter Your Task</h2>
+      <h2 id="simple-modal-title">Task Description</h2>
       <input onChange={handleChangeInput} />
-      <button onClick={handleSave}>Save</button>
+      {
+
+      }
+      <button onClick={() => onOk(value)}>{oktext}</button>
+
     </div>
   );
-
-  
 
   return (
       <Modal
@@ -77,12 +64,4 @@ function SimpleModal({open, onClose, addTask }) {
   );
 }
 
-const mapStateToProps = state => ({
-  state
-});
-
-const mapDispatchToProps = {
-  addTask: cntrlAddTask,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SimpleModal);
+export default SimpleModal;

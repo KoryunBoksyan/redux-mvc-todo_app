@@ -1,7 +1,7 @@
 import {React,useEffect} from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { useDispatch, useSelector } from 'react-redux';
-import { cntrlGetAllTask, cntrlPutAllTask } from '../../../stateManagment/actions/tasksActions';
+import { cntrlGetAllTask, cntrlPutAllTask, cntrlPutTask } from '../../../stateManagment/actions/tasksActions';
 import { Checkbox } from '@material-ui/core';
 import Loading from "../loading/loading";
 import DeleteButton from './buttons/deleteButtons';
@@ -12,7 +12,6 @@ import AddButton from './buttons/addButtons';
 export default function DataTable() {
     const dispatch = useDispatch()
     const {isLoading, data: {data: todos = []}} = useSelector(state => state.tasks.tasks);
-
     const handleChange = async (id, checked) => {
         console.log({id, checked});
         await dispatch(cntrlPutAllTask({id, completed: !checked}));
@@ -39,22 +38,14 @@ export default function DataTable() {
             headerName: 'Description',
             width: 350,
             editable: true,
+            onEditCellPropsChange: console.log
         },
         {
-            field: 'edit / delete',
-            headerName: 'Edit / Delete',
-            width: 270,
-            editable: true,
-            renderCell: () => <div style={{display: 'flex'}}>
-                <EditButton />
-                <DeleteButton />
-            </div>  
-        },
-        {
-            field: 'more information',
-            headerName: 'More Information',
+            field: 'delete',
+            headerName: 'DELETE',
             width: 320,
             editable: true,
+            renderCell: ({row: {_id}}) => ( <DeleteButton taskId={_id}/>)
         },
     ];
 
@@ -66,11 +57,26 @@ export default function DataTable() {
         getTasks();
     }, []);
 
+    const atLeastOneChecked = todos.some(todo => todo.completed);
+
   return isLoading ? <Loading /> : (
     <div>
+        <div style={{display: "flex"}}>
         <AddButton />
+        {
+            atLeastOneChecked && (
+                <>
+                    {/* <EditButton /> Not have functional for task edit, but all functioan is realized  */}
+                    
+                </>
+            )
+        }
+        </div>
+        
+        
         <div style={{ height: 400, width: '100%' }}>
             <DataGrid
+                onCellEditCommit={({id, value}) => dispatch(cntrlPutTask({id, desctiption: value })) }
                 rows={todos.map(todo => ({id: todo._id, ...todo}))}
                 columns={columns}
         />
